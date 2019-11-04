@@ -1,0 +1,69 @@
+package Act34;
+import java.util.Scanner;
+public class satelite {
+		private double meridiano;
+		private double paralelo;
+		private double distancia_tierra;
+		private static Scanner sc= new Scanner(System.in);		
+		public satelite ( ) {
+		meridiano = paralelo = distancia_tierra = 0;
+		}
+		
+		public satelite ( double m, double p, double d ) {
+		meridiano = m;
+		paralelo = p;
+		distancia_tierra = d;
+		}
+
+		public void setPosicion(double m, double p, double  d ) {
+		meridiano = m; 
+		paralelo = p; 
+		distancia_tierra = d;
+		}
+		
+		public void variaAltura(double desplazamiento) {
+			System.out.println("Introduce un valor desplazamiento");
+			desplazamiento= sc.nextDouble();
+			//En el while comprobamos que el valor de resultado no sea menor que 0
+			while((distancia_tierra+desplazamiento)<0) {
+				System.out.println("Introduce un valor mas grande, valor incorrecto");
+				desplazamiento= sc.nextDouble();
+				
+				}
+				distancia_tierra+=desplazamiento;
+				System.out.println("El satelite a modificado su valor a "+distancia_tierra);
+			}
+			
+		public boolean enOrbita() {
+			if(distancia_tierra>0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		public void variaPosicion(double variap, double variam) {
+			System.out.println("Introduce un valor paralelo");
+			variap= sc.nextDouble();
+			paralelo+=variap;
+			System.out.println("Introduce un valor meridiano");
+			variam= sc.nextDouble();
+			meridiano+=variam;
+			
+		}
+		
+		public void printPosicion( ) {
+		System.out.println("El satellite se encuentra en el paralelo "+paralelo+
+		"meridiano "+ meridiano+ " a una distancia de la tierra de " +
+		distancia_tierra+ " kilómetros»");
+		}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double n=0;
+		satelite st1= new satelite();
+		st1.variaAltura(n);
+
+	}
+
+}
